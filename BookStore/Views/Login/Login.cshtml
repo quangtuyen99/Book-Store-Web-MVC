@@ -1,0 +1,45 @@
+﻿@model BookStore.Models.USER
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/Login.cshtml";
+}
+<h2>Login Now</h2>
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken();
+    <div class="form-group">
+        @Html.TextBoxFor(model => model.username, new { @class = "form-control", @placeholder = "User Name", @type = "email" })
+        @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(model => model.password, new { @class = "from-control", @placeholder = "Password", @type = "password" })
+        @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-2">
+            <label class="label-success" style="font-size:30px; color:red">@ViewBag.LoginErrorMessage</label>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <input type="submit" value="login" name="login">
+    <p>Don't Have an Account ?<a href="/register">Register Now</a></p>
+    @Html.ActionLink("Go to home", "Index", "Default")
+}
+
+
+
+<script type="text/javascript">
+    function () {
+        $("#login").on("click", function () {
+
+            alert("Signin Successfull");
+        });
+
+    };
+</script>
+
+
+
+

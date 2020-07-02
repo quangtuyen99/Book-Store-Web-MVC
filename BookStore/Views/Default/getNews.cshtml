@@ -1,0 +1,15 @@
+﻿@model IEnumerable<BookStore.Models.NEWS>
+
+<div id="testimonal" class="owl-carousel owl-theme">
+    @foreach (var i in Model)
+    {
+        <div class="item">
+            <h3>@i.description</h3>
+            <div class="box-user">
+                <h4 class="author">@i.name</h4>
+                <span class="country">@i.country</span>
+            </div>
+        </div>
+    }
+</div>
+

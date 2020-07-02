@@ -1,0 +1,90 @@
+﻿@model BookStore.Models.USER
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<div class="breadcrumb">
+    <div class="container">
+        <a class="breadcrumb-item" href="/home">Home</a>
+        <span class="breadcrumb-item active">Login</span>
+    </div>
+</div>
+
+<style>
+    #login-div {
+        align-content: center;
+        width: 50%;
+        margin: 0 auto;
+        left: 40%;
+        top: 40%;
+        border: 3px solid #73AD21;
+        padding: 10px 10px 10px 10px;
+    }
+
+    .field-validation-error {
+        color: red;
+    }
+</style>
+
+<div id="login-div">
+    @using (Html.BeginForm("Authorize", "Login", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td></td>
+                <td style="text-decoration:underline">Đăng Nhập</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Tên đăng nhập")
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.username)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.username)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Mật khẩu")
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.password)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.password)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" name="name" value="Login" />
+                    <input type="reset" name="name" value="Clear" />
+                    <a href="/register"><input type="button" name="name" value="Register" /></a>
+                </td>
+                @*<div class="col-lg-8 col-md-12">
+                        <button class="btn black">Login</button>
+                        <h5>not Registered? <a href="/register">Register here</a></h5>
+                    </div>*@
+            </tr>
+
+        </table>
+    }
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

@@ -1,0 +1,14 @@
+﻿@model List<BookStore.Models.AUDIO>
+
+
+    <div class="jp-playlist">
+        <ul>
+            @foreach (var i in Model)
+            {
+                <div>
+                    <h2 style="text-align:center">@i.name</h2>
+                    <iframe src=@i.link width="342" height="55"></iframe>
+                </div>
+            }
+        </ul>
+    </div>

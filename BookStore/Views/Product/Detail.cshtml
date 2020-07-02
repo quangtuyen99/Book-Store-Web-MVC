@@ -1,0 +1,78 @@
+﻿@model BookStore.Models.PRODUCT
+
+@{
+    ViewBag.Title = Model.name;
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<section class="product-sec">
+    <div class="container">
+        <h1>@Model.name</h1>
+        <div class="row">
+            <div class="col-md-6 slider-sec">
+                <!-- main slider carousel -->
+                <div id="myCarousel" class="carousel slide">
+                    <!-- main slider carousel items -->
+                    <div class="carousel-inner">
+                        <div class="active item carousel-item" data-slide-number="0">
+                            <img src="~/Content/images/@Model.img" class="img-fluid">
+                        </div>
+                    </div>
+                    <!-- main slider carousel nav controls -->
+                    <ul class="carousel-indicators list-inline">
+                        <li class="list-inline-item active">
+                            <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#myCarousel">
+                                <img src="~/Content/images/@Model.img" class="img-fluid">
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a id="carousel-selector-1" data-slide-to="1" data-target="#myCarousel">
+                                <img src="~/Content/images/product2.jpg" class="img-fluid">
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a id="carousel-selector-2" data-slide-to="2" data-target="#myCarousel">
+                                <img src="~/Content/images/product3.jpg" class="img-fluid">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/main slider carousel-->
+            </div>
+            <div class="col-md-6 slider-content">
+                <p>@Model.description</p>
+                
+                <ul>
+                    
+                    <li>
+                        <span class="name">Print List</span><span class="clm">:</span><span class="name">Nhà xuất bản Trẻ</span>
+                        
+                    </li>
+           
+                    <li>
+                        <span class="name">Print List</span><span class="clm">:</span><span class="name">Truyện ngắn</span>
+                        
+                    </li>
+                    <li>
+                        <span class="name">Kindle</span><span class="clm">:</span><span class="name">Nguyễn Nhật Ánh</span>
+                        
+                    </li>
+                </ul>
+                <div class="btn-sec">
+                    <a href="/@ViewBag.meta/@Model.meta/@Model.idproduct/play" ><button class="btn">Listen Now</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="related-books">
+    <div class="container">
+        <div class="recomended-sec">
+            <div class="row">
+                
+                @{Html.RenderAction("getRecommes", "Default");}
+            </div>
+        </div>
+    </div>
+</section>
+

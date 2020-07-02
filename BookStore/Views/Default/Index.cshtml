@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+   
+}
+
+@{ Html.RenderAction("getBanners", "Default");}
+@{ Html.RenderAction("getRecommes", "Default");}
+@{ Html.RenderAction("getAbout", "Default");}
+@{ Html.RenderAction("getBook", "Default");}
+@{Html.RenderAction("getCategory", "Default");}
+<section class="testimonial-sec">
+    <div class="container">
+        @{ Html.RenderAction("getNews", "Default");}
+    </div>
+    <div class="left-quote">
+        <img src="~/Content/images/left-quote.png" alt="quote">
+    </div>
+    <div class="right-quote">
+        <img src="~/Content/images/right-quote.png" alt="quote">
+    </div>
+</section>
+
+

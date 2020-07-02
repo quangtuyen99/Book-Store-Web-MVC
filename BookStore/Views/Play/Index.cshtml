@@ -1,0 +1,100 @@
+﻿@model BookStore.Models.PRODUCT
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- js -->
+    <script src="~/Scripts/js/jquery-1.11.1.min.js"></script>
+    <!-- //js -->
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/Home">Home</a></li>
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/faq">Faq</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- main -->
+    <div class="audio-main w3ls">
+        <h1>Book Profile Widget</h1>
+
+        <div class="audio-record-list">
+            <div class="profile">
+                <div class="profile-top wthree">
+                    <div class="pic-sec">
+
+                        @Html.Action("getAuthor", "Play", new { id = Model.idauthor })
+                        <div class="pic_info">
+                            <h3 style="color:#ffffff">@Model.name</h3>
+                        </div>
+                        @if (Session["iduser"] == null || Session["iduser"].ToString() == "")
+                        {
+
+                        }
+                        else
+                        {
+                            @*<a href="@Url.Action("Create","Collection", new { @idproduct = @Model.idproduct})">Save</a>*@
+                            <a href="@Url.Action("Create", "Product", new { @idpd = Model.idproduct})"><button class="btn"><i class="fa fa-home"></i></button></a>
+                            
+                            
+                        }
+                        <div class="clear"></div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+            <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+                <div class="jp-type-playlist">
+                    @Html.Action("getAudio", "Play", new { id = @Model.idproduct })
+
+                    <div class="jp-no-solution">
+                        <span>Update Required</span>
+                        To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" value="@ViewBag.data" id="hdnFlag" />
+    <!-- //main -->
+    <!-- script for play-list -->
+    <link href="~/Content/css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="~/Scripts/js/jquery.jplayer.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/jplayer.playlist.min.js"></script>
+</body>
+</html>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .btn {
+        background-color: DodgerBlue;
+        border: none;
+        color: white;
+        padding: 12px 16px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    /* Darker background on mouse-over */
+    .btn:hover {
+        background-color: RoyalBlue;
+    }
+</style>
+@*onclick=(@Html.Action("Index", "Collection", new { idproduct = @Model.idproduct, iduser = (int)Session["iduser"] })*@

@@ -1,0 +1,24 @@
+﻿@model BookStore.Models.About  
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<div class="breadcrumb">
+    <div class="container">
+        <a class="breadcrumb-item" href="javascript: history.go(-1)">Home</a>
+        <span class="breadcrumb-item active">About</span>
+    </div>
+</div>
+<section class="static about-sec">
+    <div class="container">
+        <h1>About Us</h1>
+        <div class="img-sec">
+            
+            <img src="~/Content/images/about-img.jpg" alt="about"/>
+            <p>@Model.link</p>
+            <p>@Model.description</p>
+        </div>
+    </div>
+</section>
+

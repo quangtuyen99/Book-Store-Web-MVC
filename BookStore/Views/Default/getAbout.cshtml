@@ -1,0 +1,21 @@
+﻿@model IEnumerable<BookStore.Models.About>
+
+    <section class="about-sec">
+        <div class="about-img">
+            <figure style="background:url(../../Content/images/about-img.jpg)no-repeat;"></figure>
+        </div>
+        @foreach (var i in Model)
+        {
+            <div class="about-content">
+                <h2>@i.name</h2>
+                <p>@i.link</p>
+                <p>@i.description</p>
+                <div class="btn-sec">
+                    <a href="/shop" class="btn yellow">shop books</a>
+                    <a href="/login" class="btn black">subscriptions</a>
+                </div>
+            
+            </div>
+        }
+    </section>
+

@@ -1,0 +1,23 @@
+﻿@model List<BookStore.Models.COLLECTION>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<section class="recomended-sec">
+<div class="container">
+    <div class="title">
+        <h2>Bộ sưu tập</h2>
+        <hr>
+    </div>
+    <div class="row">
+        @foreach (var i in Model)
+        {
+            @Html.Action("Collect", "Collect", new { id = i.idproduct })
+        }
+
+    </div>
+</div>
+</section>
+

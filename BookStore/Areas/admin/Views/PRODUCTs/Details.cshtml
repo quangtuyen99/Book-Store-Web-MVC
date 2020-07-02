@@ -1,0 +1,107 @@
+﻿@model BookStore.Models.PRODUCT
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PRODUCT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.meta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.meta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hide)
+        </dt>
+
+        <dd>
+            @(Model.hide.GetValueOrDefault(false) ? "Hiển thị" : "Ẩn")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.order)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datebegin)
+        </dt>
+
+        <dd>
+            @(Model.datebegin.HasValue ? Model.datebegin.Value.ToString("dd/MM/yyyy") : "")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.img)
+        </dt>
+
+        <dd>
+            <img src="~/Content/images/@(Model.img)" width="150" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AUTHOR.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AUTHOR.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CATEGORY.namecategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CATEGORY.namecategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NXB.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NXB.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idproduct }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

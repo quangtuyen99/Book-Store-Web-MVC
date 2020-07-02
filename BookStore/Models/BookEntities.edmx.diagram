@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3c88cfd916cd4bb6b5e0ed67d134407c" Name="Diagram1">
+        <EntityTypeShape EntityType="BookModel.About" Width="1.5" PointX="5.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookModel.ADMIN" Width="1.5" PointX="2.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookModel.AUDIO" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookModel.AUTHOR" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookModel.BANNER" Width="1.5" PointX="7.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookModel.CATEGORY" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookModel.COLLECTION" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookModel.MENU" Width="1.5" PointX="9.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookModel.NEWS" Width="1.5" PointX="10.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookModel.NXB" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookModel.PRODUCT" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookModel.sysdiagram" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookModel.USER" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="BookModel.FK_AUDIO_PRODUCT" ManuallyRouted="false" />
+        <AssociationConnector Association="BookModel.FK__PRODUCT__idautho__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="BookModel.FK__PRODUCT__idcateg__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="BookModel.FK__COLLECTIO__iduse__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="BookModel.FK_COLLECTION_PRODUCT" ManuallyRouted="false" />
+        <AssociationConnector Association="BookModel.FK__PRODUCT__idnxb__398D8EEE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

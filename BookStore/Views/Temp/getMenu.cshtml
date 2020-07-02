@@ -1,0 +1,11 @@
+﻿@model IEnumerable<BookStore.Models.MENU>
+
+
+    @foreach (var i in Model)
+    {
+
+        <li class="navbar-item active">
+            <a href="/@i.meta" class="nav-link">@i.name</a>
+        </li>
+
+    }

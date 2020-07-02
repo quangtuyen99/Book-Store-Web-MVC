@@ -1,0 +1,104 @@
+﻿@model BookStore.Models.MENU
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
+}
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json",
+            url: '@Url.Action("VisualizeStudentsResults", "Default")',
+            success: function (result) {
+                google.charts.load('curent', {
+                    'packages': ['corechart']
+                });
+                google.charts.setOnLoadCallback(function () {
+                    drawChart(result);
+                });
+            }
+        });
+    });
+    function drawChart(result) {
+        var data = new google.visualization.DataTable();
+        data.addColumn('int', 'Kĩ năng');
+        data.addColumn('int', 'Truyện Ngắn');
+        var dataArray = [];
+        $.each(result, function (i, obj) {
+            dataArray.push([obj.kinang, obj.truyenngan]);
+        });
+        data.addRows(dataArray);
+        var columnCharOptions = {
+            title: "Phân loại sách",
+            width: 1000,
+            height: 400,
+            bar: {groupWidth: "20%"}
+        }
+        var columnChart = new google.visualization.ColumnChart(document.getElementById('123'));
+        columnChart.draw(data, columnCharOptions);
+    }
+</script>
+
+<div id="123"></div>
+
+
+@*<script>
+
+    $(document).ready(function () {
+        $.getJSON("~/Default/VisualizeStudentsResults", function (data) {
+
+
+
+                Highcharts.chart('container', {
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false,
+                        type: 'pie'
+                    },
+                    title: {
+                        text: 'Số lượng sách từng thể loại'
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    accessibility: {
+                        point: {
+                            valueSuffix: '%'
+                        }
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                            }
+                        }
+                    },
+                    series: [{
+                        name: 'Brands',
+                        colorByPoint: true,
+                        data: [{
+                            name: 'Kĩ năng',
+                            y: data.kinang
+                        }, {
+                                name: 'Truyện ngắn',
+                                y: data.truyenngan
+                        }]
+                    }]
+                });
+            });
+    });
+
+
+    
+</script>*@

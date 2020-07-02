@@ -1,0 +1,19 @@
+﻿@model BookStore.Models.CATEGORY
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<section class="recomended-sec">
+    <div class="container">
+            <div class="title">
+                <h2>@Model.namecategory</h2>
+            <hr>
+        </div>
+        <div class="row">
+            @Html.Action("getProduct", "Default", new { id = Model.idcategory, metatitle = @Model.meta })
+        </div>
+    </div>
+</section>
+
